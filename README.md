@@ -11,7 +11,7 @@ To install locally, clone the repository to your computer
 
 `git clone https://github.com/Vawx/word_puzzle_sinatra`
 
-then run `bundle install`
+CD to repository directory, then run `bundle install`
 
 ##View
 View the website [Here](https://secure-waters-7640.herokuapp.com/)
