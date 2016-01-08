@@ -9,6 +9,7 @@ get('/') do
 end
 
 get('/word') do
+  @answer = params.fetch('word')
   @no_vowels_word = params.fetch('word').word_puzzle
   erb(:word)
 end
