@@ -27,47 +27,48 @@
 </div>
 
 <script type="text/javascript">
-setInterval(changeExplainText, 250);
-var foundChange = false;
-var defaultText = "Remove the vowels from your words.";
-var currentText = "";
-var vowels = [ "a", "e", "i", "o", "u " ];
 
-function changeExplainText()
-{
+  setInterval(changeExplainText, 250);
   var expText = document.getElementById('explain-text');
-  if( foundChange === false )
+  var foundChange = false;
+  var defaultText = "Remove the vowels from your words.";
+  var currentText = "";
+  var vowels = [ "a", "e", "i", "o", "u " ];
+
+  function changeExplainText()
   {
-    expText.innerHTML = defaultText;
-    currentText = defaultText;
-    foundChange = true;
-  }
-  else
-  {
-    for( var i = 0; i < currentText.length; i++ )
+    if( foundChange === false )
     {
-      for( var j = 0; j < vowels.length; j++ )
+      expText.innerHTML = defaultText;
+      currentText = defaultText;
+      foundChange = true;
+    }
+    else
+    {
+      for( var i = 0; i < currentText.length; i++ )
       {
-        if( currentText[ i ] == vowels[ j ] )
+        for( var j = 0; j < vowels.length; j++ )
         {
-            currentText = setCharAt( currentText, i, "-" );
-            expText.innerHTML = currentText;
-            foundChange = true;
-            return;
+          if( currentText[ i ] == vowels[ j ] )
+          {
+              currentText = setCharAt( currentText, i, "-" );
+              expText.innerHTML = currentText;
+              foundChange = true;
+              return;
+          }
         }
       }
+      foundChange = false;
     }
-    foundChange = false;
   }
-}
 
-function setCharAt( str,index,chr )
-{
-    if( index > str.length-1 )
-    {
-      return str;
-    }
-    return str.substr( 0,index ) + chr + str.substr( index+1 );
-}
+  function setCharAt( str,index,chr )
+  {
+      if( index > str.length-1 )
+      {
+        return str;
+      }
+      return str.substr( 0,index ) + chr + str.substr( index+1 );
+  }
 
 </script>
