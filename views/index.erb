@@ -29,7 +29,7 @@
 <script type="text/javascript">
 
   setInterval(changeExplainText, 250);
-  var expText = document.getElementById('explain-text');
+  var explainText = document.getElementById('explain-text');
   var foundChange = false;
   var defaultText = "Remove the vowels from your words.";
   var currentText = "";
@@ -39,7 +39,7 @@
   {
     if( foundChange === false )
     {
-      expText.innerHTML = defaultText;
+      explainText.innerHTML = defaultText;
       currentText = defaultText;
       foundChange = true;
     }
@@ -52,7 +52,7 @@
           if( currentText[ i ] == vowels[ j ] )
           {
               currentText = setCharAt( currentText, i, "-" );
-              expText.innerHTML = currentText;
+              explainText.innerHTML = currentText;
               foundChange = true;
               return;
           }

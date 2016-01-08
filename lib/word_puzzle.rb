@@ -1,12 +1,12 @@
 class String
   define_method(:word_puzzle) do
-    split_word = self.split(//)
+    puzzle_word = self.split(//)
     vowels = ["a", "e", "i", "o", "u"]
-    for character in 0..split_word.length - 1
-      if vowels.include?(split_word[character].downcase)
-        split_word[character] = "-"
+    for character in 0..puzzle_word.length - 1
+      if vowels.include?(puzzle_word[character].downcase)
+        puzzle_word[character] = "-"
       end
     end
-    return split_word.join('')
+    return puzzle_word.join('')
   end
 end
