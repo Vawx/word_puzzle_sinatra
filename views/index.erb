@@ -2,7 +2,7 @@
 <div class="container">
   <div class="jumbotron">
     <h1 class="header">Word Puzzle</h1>
-    <p>Remove the vowels form your words.</p>
+    <p id="explain-text">Remove the vowels from your words.</p>
   </div>
 </div>
 
@@ -15,7 +15,7 @@
           <div class="wrapper" style="text-align:center;">
             <label for="word" class="display-text">Enter your text here!</label>
           </div>
-          <input type="text" id="word" name="word" class="form-control" placeholder="...">
+          <input type="text" id="word" name="word" class="form-control" placeholder="Believe you can ...">
         </div>
         <div class="wrapper button-wrapper" style="text-align:center;">
           <button type="submit" class="btn btn-warning" name="send" id="send" value="">Remove vowels!</button>
@@ -25,3 +25,50 @@
    </div>
   </div>
 </div>
+
+<script type="text/javascript">
+setInterval(changeExplainText, 250);
+var foundChange = false;
+var defaultText = "Remove the vowels form your words.";
+var currentText = "";
+var vowels = [ "a", "e", "i", "o", "u " ];
+
+function changeExplainText()
+{
+  var expText = document.getElementById('explain-text');
+  if( foundChange === false )
+  {
+    expText.innerHTML = defaultText;
+    currentText = defaultText;
+    foundChange = true;
+  }
+  else
+  {
+    for( var i = 0; i < currentText.length; i++ )
+    {
+      for( var j = 0; j < vowels.length; j++ )
+      {
+        if( currentText[ i ] == vowels[ j ] )
+        {
+            currentText = setCharAt( currentText, i, "-" );
+            expText.innerHTML = currentText;
+            console.log(currentText[ i ]);
+            foundChange = true;
+            return;
+        }
+      }
+    }
+    foundChange = false;
+  }
+}
+
+function setCharAt( str,index,chr )
+{
+    if( index > str.length-1 )
+    {
+      return str;
+    }
+    return str.substr( 0,index ) + chr + str.substr( index+1 );
+}
+
+</script>
