@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Tangerine:700);
 @import url(https://fonts.googleapis.com/css?family=Linden+Hill);
 @import url(https://fonts.googleapis.com/css?family=Alegreya+Sans:900);
+@import url(https://fonts.googleapis.com/css?family=Oswald);
 
 * {
   font-family: 'Linden Hill'
@@ -11,6 +12,18 @@
     font-size: 18px;
     font-weight: bold;
     font-family: 'Tangerine';
+}
+
+.result-header {
+  background-color: rgb(230,230,230);
+  border-radius: 25px;
+  font-family: 'Linden Hill';
+  font-size: 72px;
+  font-weight: bold;
+}
+
+.container-header {
+  padding: 42px;
 }
 
 .display-text {
@@ -30,4 +43,9 @@
     -webkit-border-radius: 8px !important;
        -moz-border-radius: 8px !important;
             border-radius: 8px !important;
+}
+
+.result-text
+{
+  font-family: 'Oswald';
 }
