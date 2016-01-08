@@ -17,4 +17,10 @@ describe('the word change path', {:type => :feature}) do
     click_button('send')
     expect(page).to have_content("B-l--v- y-- c-n -nd y--'r- h-lfw-y th-r-. Th--d-r- R--s-v-lt")
   end
+  it('processes the user input, including capital letterws, and returns thier words with a - for all vowels') do
+    visit('/')
+    fill_in('word', :with => "Alice and the other animals convene on the bank and the question among them is how to get dry again.")
+    click_button('send')
+    expect(page).to have_content("-l-c- -nd th- -th-r -n-m-ls c-nv-n- -n th- b-nk -nd th- q--st--n -m-ng th-m -s h-w t- g-t dry -g--n.")
+  end
 end
