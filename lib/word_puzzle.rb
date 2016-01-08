@@ -3,7 +3,7 @@ class String
     split_word = self.split(//)
     vowels = ["a", "e", "i", "o", "u"]
     for character in 0..split_word.length - 1
-      if vowels.include?(split_word[character])
+      if vowels.include?(split_word[character].downcase)
         split_word[character] = "-"
       end
     end
