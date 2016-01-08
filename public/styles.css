@@ -1,5 +1,33 @@
 @import url(https://fonts.googleapis.com/css?family=Tangerine:700);
+@import url(https://fonts.googleapis.com/css?family=Linden+Hill);
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans:900);
 
 * {
-  font-family: 'Tangerine'
+  font-family: 'Linden Hill'
+}
+
+.jumbotron h1 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Tangerine';
+}
+
+.display-text {
+  font-size: 22px;
+}
+
+.button-wrapper {
+  padding: 12px;
+}
+
+.btn-warning {
+  color: black !important;
+  padding: 18px 28px !important;
+    font-size: 27px !important;
+    font-family: 'Alegreya Sans' !important;
+    line-height: normal !important;
+    -webkit-border-radius: 8px !important;
+       -moz-border-radius: 8px !important;
+            border-radius: 8px !important;
 }

@@ -1,16 +1,27 @@
 
 <div class="container">
   <div class="jumbotron">
-    <h1>Word Puzzle</h1>
+    <h1 class="header">Word Puzzle</h1>
     <p>Remove the vowels form your words.</p>
   </div>
 </div>
 
 <div class="container">
-  <form action="/word">
-    <div class="">
-      <input type="text" id="word" name="word" class="form-control">
+  <div class="col-lg-4 col-lg-offset-4">
+    <div class="row">
+      <div class="well">
+      <form action="/word">
+        <div class="">
+          <div class="wrapper" style="text-align:center;">
+            <label for="word" class="display-text">Enter your text here!</label>
+          </div>
+          <input type="text" id="word" name="word" class="form-control" placeholder="...">
+        </div>
+        <div class="wrapper button-wrapper" style="text-align:center;">
+          <button type="submit" class="btn btn-warning" name="send" id="send" value="">Remove vowels!</button>
+        </div>
+      </form>
     </div>
-    <button type="submit" name="send" id="send" value="">Remove vowels!</button>
-  </form>
+   </div>
+  </div>
 </div>
