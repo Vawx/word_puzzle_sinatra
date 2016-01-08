@@ -4,21 +4,21 @@
   </div>
   <div class="wrapper" style="text-align: center;">
     <h1 class="result-text" id="word_puzzle"><%= @no_vowels_word %></h1>
+    <div id="answer" style="display: none;"><%= @answer %></div>
   </div>
 </div>
 
 <div class="container">
   <div class="well">
     <div class="" style="text-align:center;padding-bottom:12px;">
-      <input id="user_guess" type="text" class="form-control" placeholder="...">
+      <input id="user_guess" name="user_guess" type="text" class="form-control" placeholder="...">
     </div>
     <div class="" style="text-align:center;">
-      <button id="submit_button" type="button" class="btn btn-success" name="button" onclick="guess()">Guess</button>
+      <button id="submit_button" type="button" class="btn btn-success" name="submit_button" onclick="guess()">Guess</button>
     </div>
   </div>
 </div>
 
-<div id="answer" style="display: none;"><%= @answer %></div>
 
 <script type="text/javascript">
   var answer = document.getElementById('answer').innerHTML;
