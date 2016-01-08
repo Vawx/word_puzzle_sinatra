@@ -3,7 +3,7 @@
     <h2 class="result-header" id="result-header">Guess the word!</h2>
   </div>
   <div class="wrapper" style="text-align: center;">
-    <h1 class="result-text"><%= @no_vowels_word %></h1>
+    <h1 class="result-text" id="word_puzzle"><%= @no_vowels_word %></h1>
   </div>
 </div>
 
@@ -13,7 +13,7 @@
       <input id="user_guess" type="text" class="form-control" placeholder="...">
     </div>
     <div class="" style="text-align:center;">
-      <button type="button" class="btn btn-success" name="button" onclick="guess()">Guess</button>
+      <button id="submit_button" type="button" class="btn btn-success" name="button" onclick="guess()">Guess</button>
     </div>
   </div>
 </div>
@@ -21,13 +21,57 @@
 <div id="answer" style="display: none;"><%= @answer %></div>
 
 <script type="text/javascript">
+  var answer = document.getElementById('answer').innerHTML;
+  var word_puzzle_text = document.getElementById('word_puzzle').innerHTML;
+  var submit_button = document.getElementById('submit_button');
+  var bWrong = false;
+
   function guess()
   {
     var user_guess = document.getElementById('user_guess').value;
-    var answer = document.getElementById('answer').innerHTML;
-    if( user_guess === answer )
+    if( user_guess === answer && !bWrong )
     {
       document.getElementById('result-header').innerHTML = "Correct!";
+      setInterval(changeGuessText, 250);
     }
+    else
+    {
+      submit_button.innerHTML = "Wrong!";
+      bWrong = true;
+      setInterval(resetGuess, 650);
+    }
+  }
+
+  function changeGuessText()
+  {
+    for( var i = 0; i < word_puzzle_text.length; i++ )
+    {
+      for( var j = 0; j < answer.length; j++ )
+      {
+        if( word_puzzle_text[ i ] == "-" && i === j )
+        {
+          word_puzzle_text = setCharAt( word_puzzle_text, i, answer[ j ] );
+          document.getElementById('word_puzzle').innerHTML = word_puzzle_text;
+          return;
+        }
+      }
+    }
+    clearInterval(changeGuessText);
+  }
+
+  function resetGuess( )
+  {
+    clearInterval(resetGuess);
+    submit_button.innerHTML = "Guess!";
+    bWrong = false;
+  }
+
+  function setCharAt( str,index,chr )
+  {
+      if( index > str.length-1 )
+      {
+        return str;
+      }
+      return str.substr( 0,index ) + chr + str.substr( index+1 );
   }
 </script>
