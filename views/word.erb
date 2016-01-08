@@ -32,7 +32,7 @@
   function guess()
   {
     var user_guess = document.getElementById('user_guess').value;
-    if( user_guess === answer )
+    if( user_guess.toLowerCase() === answer.toLowerCase() )
     {
       if ( !bWrong )
       {
